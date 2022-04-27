@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <% if(!isAuthenticated) { %>
+            <li>
+                <a href="/login/"">
+                    login
+                </a>
+            </li>
+            <% }
+            else{%>
+            <li>
+                <a href="/logout/"">
+                    logout
+                </a>
+            </li>
+            <% } %>
+        </ul>
+    </nav>
+    <h1>
+        <%= title %>
+    </h1>
+    <p>
+       Welcome to <%= title %>
+    </p>
+    <!-- <pre>
+        <%=
+        JSON.stringify(user,null,2)
+        %>
+    </pre> -->
+        <%
+    if(user) {%>
+    <div class="profileInfo">
+        <img src="<%= user.picture %>" />
+        <p class="name">
+            <%= user.given_name %>
+        </p>
+    </div>
+    <%
+    }
+    %>
+
+</body>
+</html>
